@@ -6,7 +6,7 @@ on:
     - main
     - dev
   schedule:
-    - cron: "45 05 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
   
 jobs:
