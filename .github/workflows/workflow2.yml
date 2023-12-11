@@ -18,6 +18,7 @@ jobs:
          run: |
           ls -l
           pwd
+          java -version
      
   
   
