@@ -29,7 +29,7 @@ jobs:
        - name: task2 to print hostname
          run: hostname 
        - name: step 3
-         run: sleep 30
+         run: echo " Value for user1 and servername are $USER1 , ${{ vars.user1 }} and ${{ vars.server_name }}"
        - name: step 4 
          run: echo "Test-job and step 4 of test-job completed"
          
