@@ -36,7 +36,7 @@ jobs:
        - run: echo " Print value of user 3 $user3"
   test:
      runs-on: gagan-devops
-     if: github.event_name == 'pull_request'
+     if: runner.os == 'ubuntu'
      environment: prod
      steps:
        - name: Checkout
@@ -48,8 +48,10 @@ jobs:
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token1 }} "
           echo " ${{ secrets.token1 }} " >> /tmp/gagan-pass
+          echo " ${{ runner.os }} "
   deploy:
      runs-on: gagan-devops
+     if: runner.os != 'ubuntu'
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
@@ -60,6 +62,7 @@ jobs:
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token_repo }} "
           echo " ${{ secrets.token_repo }} " >> /tmp/gagan-pass
+          echo " ${{ runner.os }} "
           cat /tmp/gagan-pass
   
   
