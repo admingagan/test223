@@ -28,6 +28,8 @@ jobs:
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo "Value for variable user1, user2 and user3 are $USER1 $USER2 $user3"
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
+          echo "password for env is ${{ secrets.token1 }} "
+          echo " ${{ secrets.token1 }} " >> /tmp/gagan-pass
           pwd
           java -version
        - run: echo " Print value of user 3 $user3"
@@ -42,7 +44,8 @@ jobs:
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
-
+          echo "password for env is ${{ secrets.token1 }} "
+          echo " ${{ secrets.token1 }} " >> /tmp/gagan-pass
   deploy:
      runs-on: ubuntu-latest
      steps:
@@ -53,6 +56,8 @@ jobs:
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
-          
+          echo "password for env is ${{ secrets.token_repo }} "
+          echo " ${{ secrets.token_repo }} " >> /tmp/gagan-pass
+          cat /tmp/gagan-pass
   
   
