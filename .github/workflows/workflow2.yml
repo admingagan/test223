@@ -36,12 +36,12 @@ jobs:
        - run: echo " Print value of user 3 $user3"
   test:
      runs-on: gagan-devops
-     if: runner.os == 'ubuntu'
      environment: prod
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
        - name: step 2
+         if: runner.os == 'ubuntu'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
@@ -51,11 +51,11 @@ jobs:
           echo " ${{ runner.os }} "
   deploy:
      runs-on: gagan-devops
-     if: runner.os != 'ubuntu'
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
        - name: step 2
+         if: runner.os != 'ubuntu'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
