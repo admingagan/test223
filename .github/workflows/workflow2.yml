@@ -40,8 +40,8 @@ jobs:
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
-       - name: step 2
-         if: runner.os == 'ubuntu'
+       - name: step 2 run only on Linux
+         if: runner.os == 'Linux'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
@@ -54,8 +54,8 @@ jobs:
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
-       - name: step 2
-         if: runner.os != 'ubuntu'
+       - name: step 2 run only on windows
+         if: runner.os != 'Linux'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
