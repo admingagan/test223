@@ -11,6 +11,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: step1
+         continue-on-error: true
          run: |
            eo "test step 1"
            sleep 10
