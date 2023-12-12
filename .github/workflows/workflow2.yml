@@ -36,9 +36,7 @@ jobs:
        - run: echo " Print value of user 3 $user3"
   test:
      runs-on: gagan-devops
-     environment: 
-       name: prod
-       url: ${{ steps.test.outputs.deployment-url }}
+     environment: prod
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
