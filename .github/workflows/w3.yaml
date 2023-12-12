@@ -9,7 +9,7 @@ jobs:
   build:
      runs-on: ubuntu-latest
      steps:
-       - name: step1
+       - name: step 1
          continue-on-error: true
          run: |
            eo "test step 1"
